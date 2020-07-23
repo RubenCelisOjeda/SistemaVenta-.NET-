@@ -93,16 +93,19 @@ namespace Venta_.Net_.App.Mantenimiento
                 dataTable.Columns.Add(new DataColumn(info.Name, Nullable.GetUnderlyingType(info.PropertyType) ?? info.PropertyType));
             }
 
-            foreach (T entity in item)
+            if (item != null)
             {
-                object[] values = new object[properties.Length];
-
-                for (int i = 0; i < properties.Length; i++)
+                foreach (T entity in item)
                 {
-                    values[i] = properties[i].GetValue(entity);
-                }
+                    object[] values = new object[properties.Length];
 
-                dataTable.Rows.Add(values);
+                    for (int i = 0; i < properties.Length; i++)
+                    {
+                        values[i] = properties[i].GetValue(entity);
+                    }
+
+                    dataTable.Rows.Add(values);
+                }
             }
             return dataTable;
         }
@@ -438,9 +441,16 @@ namespace Venta_.Net_.App.Mantenimiento
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 3)
+            if (e.KeyChar == (char)13)
             {
+                DataTable dt = null;
+                dt = CreateDataTable(oUsuario.GetByUsuario(this.txtBuscar.Text == "" ? "%" : this.txtBuscar.Text));
 
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.dgvUsuarios.DataSource = dt;
             }
         }
     }

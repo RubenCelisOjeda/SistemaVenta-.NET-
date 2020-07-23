@@ -29,6 +29,11 @@ namespace Business
             return this.oUsuario.GetByUsuario(pId);
         }
 
+        public IList<DtoUsuarioGrilla> GetByUsuario(string pValor)
+        {
+            return this.oUsuario.GetByUsuario(pValor);
+        }
+
         public bool AddUsuario(DtoUsuarioInsert pEntidad)
         {
             return this.oUsuario.AddUsuario(pEntidad);
@@ -53,7 +58,5 @@ namespace Business
         {
             return this.oUsuario.GetComboRolUsuario();
         }
-
-       
     }
 }

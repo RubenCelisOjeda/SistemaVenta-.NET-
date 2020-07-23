@@ -88,9 +88,9 @@ namespace Datos
             return dtoUsuario;
         }
 
-        public DtoUsuarioGrilla GetByUsuario(string pValor)
+        public IList<DtoUsuarioGrilla> GetByUsuario(string pValor)
         {
-            DtoUsuarioGrilla dtoUsuario = null;
+            List<DtoUsuarioGrilla> dtoUsuario = new List<DtoUsuarioGrilla>();
 
             var urlClient = string.Format("/Api/Usuarios/Filtro/{0}", pValor);
             var restClient = new RestService();
@@ -109,7 +109,7 @@ namespace Datos
                     FechaRegistro = item.FechaRegistro,
                     Empleado = item.Empleado
                 };
-                dtoUsuario = data;
+                dtoUsuario.Add(data);
             }
             return dtoUsuario;
         }
