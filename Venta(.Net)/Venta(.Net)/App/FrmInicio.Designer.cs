@@ -220,7 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1299, 584);
+            this.ClientSize = new System.Drawing.Size(1320, 584);
             this.ControlBox = false;
             this.Controls.Add(this.pnlReportePrincipal);
             this.Controls.Add(this.lblImageElopify);

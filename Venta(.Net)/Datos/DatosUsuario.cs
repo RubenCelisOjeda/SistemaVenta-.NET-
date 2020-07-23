@@ -88,6 +88,32 @@ namespace Datos
             return dtoUsuario;
         }
 
+        public DtoUsuarioGrilla GetByUsuario(string pValor)
+        {
+            DtoUsuarioGrilla dtoUsuario = null;
+
+            var urlClient = string.Format("/Api/Usuarios/Filtro/{0}", pValor);
+            var restClient = new RestService();
+            var responseClient = restClient.GetAsync<Respuesta<DtoUsuarioGrilla>>(urlClient);
+
+            foreach (var item in responseClient.Lista)
+            {
+                var data = new DtoUsuarioGrilla()
+                {
+                    Id = item.Id,
+                    UsuarioName = item.UsuarioName,
+                    Password = item.Password,
+                    Email = item.Email,
+                    RolUsuario = item.RolUsuario,
+                    Estado = item.Estado,
+                    FechaRegistro = item.FechaRegistro,
+                    Empleado = item.Empleado
+                };
+                dtoUsuario = data;
+            }
+            return dtoUsuario;
+        }
+
         public bool AddUsuario(DtoUsuarioInsert pEntidad)
         {
             bool response = false;

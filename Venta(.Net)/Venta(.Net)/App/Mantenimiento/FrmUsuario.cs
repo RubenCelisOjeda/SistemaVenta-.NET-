@@ -30,6 +30,9 @@ namespace Venta_.Net_.App.Mantenimiento
             this.Accion = "Guardar";
         }
 
+        /// <summary>
+        /// Se inicializa los botones por defecto habilitado
+        /// </summary>
         private void ControlesInicializar()
         {
             this.btnNuevo.Enabled = true;
@@ -39,6 +42,9 @@ namespace Venta_.Net_.App.Mantenimiento
             this.btnCancelar.Enabled = false;
         }
 
+        /// <summary>
+        /// Obtiene  los usuarios del servicio
+        /// </summary>
         private void GetUsuarios()
         {
             DataTable dt = new DataTable();
@@ -259,16 +265,16 @@ namespace Venta_.Net_.App.Mantenimiento
                     MessageBox.Show("Contraseñas no coinciden", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.txtPassword.Focus();
                 }
-                //else if (this.cmbEmpleado.SelectedIndex == 0)
-                //{
-                //    MessageBox.Show("Seleccione un empleado.", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    this.cmbRol.Focus();
-                //}
+                else if (this.cmbEmpleado.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Seleccione un empleado.", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.cmbRol.Focus();
+                }
                 else
                 {
                     var data = new DtoUsuarioInsert()
                     {
-                        //Id = Convert.ToInt32(this.txtUsuarioId.Text),
+                        Id = Convert.ToInt32(this.txtUsuarioId.Text),
                         RoId = Convert.ToInt32(this.cmbRol.SelectedValue),
                         Email = this.txtEmail.Text.Trim(),
                         UsuarioName = this.txtUsuario.Text.Trim(),
@@ -428,6 +434,14 @@ namespace Venta_.Net_.App.Mantenimiento
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             IdUsuario = (int)this.dgvUsuarios.Rows[e.RowIndex].Cells[0].Value;
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 3)
+            {
+
+            }
         }
     }
 }

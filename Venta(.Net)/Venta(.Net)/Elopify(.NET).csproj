@@ -91,6 +91,12 @@
     <Compile Include="App\FrmReportes.Designer.cs">
       <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\Mantenimiento\FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Mantenimiento\FrmEmpleado.Designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Mantenimiento\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Mantenimiento\FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Mantenimiento\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
