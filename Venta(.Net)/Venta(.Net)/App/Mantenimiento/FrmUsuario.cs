@@ -42,9 +42,6 @@ namespace Venta_.Net_.App.Mantenimiento
             this.btnCancelar.Enabled = false;
         }
 
-        /// <summary>
-        /// Obtiene  los usuarios del servicio
-        /// </summary>
         private void GetUsuarios()
         {
             DataTable dt = new DataTable();
@@ -112,6 +109,11 @@ namespace Venta_.Net_.App.Mantenimiento
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            this.BotonNuevo();
+        }
+
+        private void BotonNuevo()
+        {
             this.Accion = "Guardar";
             this.GetComboEmpleados(1, 0);
             this.GetComboRolesUsuarios();
@@ -141,6 +143,11 @@ namespace Venta_.Net_.App.Mantenimiento
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.BotonCancelar();   
+        }
+
+        private void BotonCancelar()
         {
             TabPage t = this.tbcUsuario.TabPages[0];
             this.tbcUsuario.SelectedTab = t;
@@ -366,17 +373,22 @@ namespace Venta_.Net_.App.Mantenimiento
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            this.BotonEditar();
+        }
+
+        private void BotonEditar()
+        {
             this.Accion = "Actualizar";
 
             if (IdUsuario == 0)
             {
                 MessageBox.Show("Seleccione un registro para editar", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+            }
             else
             {
                 TabPage t = this.tbcUsuario.TabPages[1];
                 this.tbcUsuario.SelectedTab = t;
-                
+
                 this.HabilitarControles(true);
                 this.cmbEmpleado.Enabled = false;
                 this.btnNuevo.Enabled = false;
@@ -389,7 +401,7 @@ namespace Venta_.Net_.App.Mantenimiento
                 {
                     IdUsuario = (int)this.dgvUsuarios.Rows[this.dgvUsuarios.CurrentRow.Index].Cells[0].Value;
                 }
-                
+
                 DtoUsuario dtoUsuario = null;
                 dtoUsuario = this.oUsuario.GetByUsuario(IdUsuario);
 
@@ -408,12 +420,17 @@ namespace Venta_.Net_.App.Mantenimiento
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            this.BotoEliminar();
+        }
+
+        private void BotoEliminar()
+        {
             if (IdUsuario != 0)
             {
                 DialogResult messgae = MessageBox.Show("¿Desea eliminar el registro?", "Mensaje del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (messgae == DialogResult.Yes)
-                {   
+                {
                     int response = 0;
                     response = this.oUsuario.DeleteUsuario(IdUsuario);
 

@@ -1,7 +1,6 @@
 ﻿using Entidades.Dto.Empleado;
 using Entidades.Dto.Usuario;
 using SistemaVenta_MVC.Utils;
-using System.Collections;
 using System.Collections.Generic;
 using Utils;
 
@@ -9,6 +8,11 @@ namespace Datos
 {
     public class DatosUsuario
     {
+        /// <summary>
+        /// Metodo que autentica el usuario.
+        /// </summary>
+        /// <param name="pEntidad">Entidad que contiene los datos</param>
+        /// <returns>DtoLoginResponse</returns>
         public DtoLoginResponse Login(DtoLoginRequest pEntidad)
         {
             var urlClient = string.Format("api/Usuarios/Validar");
@@ -32,6 +36,10 @@ namespace Datos
             return data;
         }
 
+        /// <summary>
+        /// Metodo que consulta todos los usuarios.
+        /// </summary>
+        /// <returns>IList</returns>
         public IList<DtoUsuarioGrilla> GetUsuario()
         {
             IList<DtoUsuarioGrilla> lista = new List<DtoUsuarioGrilla>();
@@ -61,6 +69,11 @@ namespace Datos
             return lista;
         }
 
+        /// <summary>
+        /// Metodo que consulta los datos de un usuario por Id.
+        /// </summary>
+        /// <param name="pId">Id del usuario a consultar</param>
+        /// <returns>DtoUsuario</returns>
         public DtoUsuario GetByUsuario(int pId)
         {
             DtoUsuario dtoUsuario = null;
@@ -88,6 +101,11 @@ namespace Datos
             return dtoUsuario;
         }
 
+        /// <summary>
+        /// Metodo que filtra por nombre de usuario.
+        /// </summary>
+        /// <param name="pValor">Valor del usuario a consultar</param>
+        /// <returns>IList</returns>
         public IList<DtoUsuarioGrilla> GetByUsuario(string pValor)
         {
             List<DtoUsuarioGrilla> dtoUsuario = new List<DtoUsuarioGrilla>();
@@ -114,6 +132,11 @@ namespace Datos
             return dtoUsuario;
         }
 
+        /// <summary>
+        /// Metodo que registra un usuario.
+        /// </summary>
+        /// <param name="pEntidad">Entidad que tiene datos del usuario.</param>
+        /// <returns>bool</returns>
         public bool AddUsuario(DtoUsuarioInsert pEntidad)
         {
             bool response = false;
@@ -133,6 +156,11 @@ namespace Datos
             return response;
         }
 
+        /// <summary>
+        /// Metodo que actualiza un usuario.
+        /// </summary>
+        /// <param name="pEntidad">Entidad que tiene datos del usuario.</param>
+        /// <returns>bool</returns>
         public bool UpdateUsuario(DtoUsuarioInsert pEntidad)
         {
             bool response = false;
@@ -152,6 +180,11 @@ namespace Datos
             return response;
         }
 
+        /// <summary>
+        /// Metodo que obtiene por id el usuario.
+        /// </summary>
+        /// <param name="pId">Id del usuario</param>
+        /// <returns>int</returns>
         public int DeleteUsuario(int pId)
         {
             int response = 0;
@@ -171,6 +204,12 @@ namespace Datos
             return response;
         }
 
+        /// <summary>
+        /// Metodo que obtiene combo en empleado.
+        /// </summary>
+        /// <param name="pIdCombo">Tipo del firltro del combo</param>
+        /// <param name="pIdUsuario">Id del usuario</param>
+        /// <returns>IList</returns>
         public IList<DtoComboEmpleado> GetComboEmpleado(int pIdCombo = 0, int pIdUsuario = 0)
         {
             List<DtoComboEmpleado> lista = new List<DtoComboEmpleado>();
@@ -194,6 +233,10 @@ namespace Datos
             return lista;
         }
 
+        /// <summary>
+        /// Metodo que obtiene en combo por usuario.
+        /// </summary>
+        /// <returns>IList</returns>
         public IList<DtoRolUsuario> GetComboRolUsuario()
         {
             List<DtoRolUsuario> lista = new List<DtoRolUsuario>();
@@ -219,7 +262,5 @@ namespace Datos
             }
             return lista;
         }
-
-
     }
 }

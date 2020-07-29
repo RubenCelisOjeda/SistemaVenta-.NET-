@@ -44,6 +44,7 @@
     <Compile Include="Dto\Cliente\DtoClienteInsert.cs" />
     <Compile Include="Dto\Cliente\DtoClienteList.cs" />
     <Compile Include="Dto\Empleado\DtoComboEmpleado.cs" />
+    <Compile Include="Dto\Empleado\DtoEmpleadoList.cs" />
     <Compile Include="Dto\Usuario\DtoLoginRequest.cs" />
     <Compile Include="Dto\Usuario\DtoLoginResponse.cs" />
     <Compile Include="Dto\Usuario\DtoRolUsuario.cs" />

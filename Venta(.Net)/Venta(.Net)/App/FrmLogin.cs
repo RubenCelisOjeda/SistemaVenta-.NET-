@@ -36,6 +36,11 @@ namespace Venta_.Net_
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            this.Login();
+        }
+
+        private void Login()
+        {
             string user = string.Empty;
             string password = string.Empty;
 
@@ -79,6 +84,7 @@ namespace Venta_.Net_
                     Properties.Settings.Default.Check = this.chkRecordarUsuario.Checked;
                     Properties.Settings.Default.Save();
 
+                    //asigna el id del usuario a la variable global
                     VarGlo.Instance().CodUsuario = data.Id;
 
                     FrmPrincipal frm = new FrmPrincipal();
@@ -88,10 +94,9 @@ namespace Venta_.Net_
             }
             catch (Exception ex)
             {
-                MessageBox.Show(null, "Ocurrio un error,Comuniquese con el administrador","Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Ocurrio un error,Comuniquese con el administrador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -102,6 +107,7 @@ namespace Venta_.Net_
             this.WindowState = FormWindowState.Minimized;
         }
 
+        //Dll que permite mover el formulario.
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SistemaVenta_MVC.Utils
+﻿namespace SistemaVenta_MVC.Utils
 {
     public class RespuestaLogin<T> where T : class, new()
     {
