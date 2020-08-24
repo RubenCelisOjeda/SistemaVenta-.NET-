@@ -209,7 +209,7 @@
             this.lblImageElopify.Image = global::Venta_.Net_.Properties.Resources.elopify;
             this.lblImageElopify.Location = new System.Drawing.Point(118, 268);
             this.lblImageElopify.Name = "lblImageElopify";
-            this.lblImageElopify.Size = new System.Drawing.Size(962, 323);
+            this.lblImageElopify.Size = new System.Drawing.Size(941, 323);
             this.lblImageElopify.TabIndex = 31;
             this.lblImageElopify.Text = "Sistema de Comercio Electrónico";
             this.lblImageElopify.TextAlign = System.Drawing.ContentAlignment.TopCenter;

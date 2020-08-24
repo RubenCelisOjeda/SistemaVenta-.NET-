@@ -101,5 +101,10 @@ namespace Venta_.Net_
         {
             this.AbrirFrm(new FrmUsuario());
         }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            this.AbrirFrm(new FrmEmpleado());
+        }
     }
 }

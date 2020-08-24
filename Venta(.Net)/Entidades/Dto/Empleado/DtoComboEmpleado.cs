@@ -18,6 +18,8 @@ namespace Entidades.Dto.Empleado
         {
             this.Id = 0;
             this.Empleado = string.Empty;
+            this.Nombre = string.Empty;
+            this.Valor1 = string.Empty;
         }
 
         /// <summary>
@@ -25,5 +27,7 @@ namespace Entidades.Dto.Empleado
         /// </summary>
         public int Id { get; set; }
         public string Empleado { get; set; }
+        public string Nombre { get; set; }
+        public string Valor1 { get; set; }
     }
 }
